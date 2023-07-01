@@ -22,7 +22,7 @@ jobs:
       - name: npm install
         run: |
           echo installing dependencies
-          npm ci
+          npm i
 
       - name: build and lint
         run: |
