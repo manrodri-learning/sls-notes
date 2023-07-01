@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"TBD\"",
-    "build": "echo \nTBD: most likely tsc ...",
+    "test": "echo TBD",
+    "build": "echo TBD: most likely tsc ...",
     "lint": "echo tbd..."
   },
   "keywords": [],
