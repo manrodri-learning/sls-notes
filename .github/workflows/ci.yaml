@@ -2,7 +2,6 @@ name: CI serverless app
 on:
   push:
     branches:
-      - dev
       - main
   workflow_dispatch:
 
@@ -17,9 +16,9 @@ jobs:
     steps:
       - name: install serverless framework
         run: |
-           echo installing serverless
-           npm i -g serverless
-           
+          echo installing serverless
+          npm i -g serverless
+
       - uses: actions/checkout@v3
       - name: npm install
         run: |
@@ -28,21 +27,16 @@ jobs:
 
       - name: build and lint
         run: |
-           npm run  build
-           npm run lint
+          npm run  build
+          npm run lint
 
       - name: unit tests
         run: |
           npm run test
       - name: deploy to AWS
-        run: | 
+        run: |
           echo "Deployment started on $(date)"
           echo Deploying with the serverless framework
           sls deploy -v -s ${{env.ENV_NAME}}
       - name: Post build step
-        run: echo "Deployment completed on $(date)" 
-
-
-      
-
-
+        run: echo "Deployment completed on $(date)"
