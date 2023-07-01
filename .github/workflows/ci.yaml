@@ -19,10 +19,12 @@ jobs:
         run: |
            echo installing serverless
            npm i -g serverless
+           
+      - uses: actions/checkout@v3
       - name: npm install
         run: |
           echo installing dependencies
-          npm i
+          npm ci
 
       - name: build and lint
         run: |
