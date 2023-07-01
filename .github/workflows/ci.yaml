@@ -1,0 +1,46 @@
+name: CI serverless app
+on:
+  push:
+    branches:
+      - dev
+      - main
+  workflow_dispatch:
+
+env:
+  AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  ENV_NAME: PROD
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install serverless framework
+        run: |
+           echo installing serverless
+           npm i -g serverless
+      - name: npm install
+        run: |
+          echo installing dependencies
+          npm ci
+
+      - name: build and lint
+        run: |
+           npm run  build
+           npm run lint
+
+      - name: unit tests
+        run: |
+          npm run test
+      - name: deploy to AWS
+        run: | 
+          echo "Deployment started on $(date)"
+          echo Deploying with the serverless framework
+          sls deploy -v -s ${{env.ENV_NAME}}
+      - name: Post build step
+        run: echo "Deployment completed on $(date)" 
+
+
+      
+
+

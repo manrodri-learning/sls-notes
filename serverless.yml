@@ -24,7 +24,7 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: eu-west-1
-  stage: dev
+  stage: PROD
   memorySize: 128
   timeout: 5
   endpointType: REGIONAL
