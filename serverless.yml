@@ -33,14 +33,9 @@ provider:
   endpointType: REGIONAL
   environment:
     NOTES_TABLE: ${self:service}-${opt:stage, self:provider.stage}
-  iamRoleStatements:
-    - Effect: Allow
-      Action: 
-        - dynamodb:Query
-        - dynamodb:PutItem
-        - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.NOTES_TABLE}"
-
+  iamManagedPolicies:
+    - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+  
 functions:
   add-note:
     handler: API/add-note.handler
