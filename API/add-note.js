@@ -13,6 +13,8 @@
  const tableName = process.env.NOTES_TABLE;
  
  exports.handler = async (event) => {
+    console.log(`event: ${JSON.stringify(event.headers, null, 2)}`);
+
      try {
          let item = JSON.parse(event.body).Item;
          item.user_id = util.getUserId(event.headers);
