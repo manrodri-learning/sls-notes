@@ -38,6 +38,6 @@ jobs:
         run: |
           echo "Deployment started on $(date)"
           echo Deploying with the serverless framework to stage $ENVIRONMENT_STAGE
-          sls deploy -v -s $ENVIRONMENT_STAGE
+          sls deploy
       - name: Post build step
         run: echo "Deployment completed on $(date)"
