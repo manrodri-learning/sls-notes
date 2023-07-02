@@ -16,12 +16,7 @@ custom:
     - X-Amz-User-Agent
     - app_user_id
     - app_user_name
-  # customDomain:
-  #   domainName: api.notesapp.xyz
-  #   basePath: 'v1'
-  #   stage: ${self:provider.stage}
-  #   certificateName: notesapp.xyz
-  #   createRoute53Record: true
+
 
 provider:
   name: aws
