@@ -3,12 +3,13 @@ on:
   push:
     branches:
       - main
+      - dev
   workflow_dispatch:
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  ENV_NAME: PROD
+  ENVIRONMENT_STAGE: PROD
 
 jobs:
   ci:
@@ -36,7 +37,7 @@ jobs:
       - name: deploy to AWS
         run: |
           echo "Deployment started on $(date)"
-          echo Deploying with the serverless framework
-          sls deploy -v -s ${{env.ENV_NAME}}
+          echo Deploying with the serverless framework to stage $ENVIRONMENT_STAGE
+          sls deploy -v -s $ENVIRONMENT_STAGE
       - name: Post build step
         run: echo "Deployment completed on $(date)"
