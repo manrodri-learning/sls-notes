@@ -3,7 +3,6 @@ service: sls-notes-backend
 
 plugins:
   - serverless-offline
-  - serverless-domain-manager
 
 custom:
   allowedHeaders:
@@ -44,7 +43,7 @@ provider:
 
 functions:
   add-note:
-    handler: api/add-note.handler
+    handler: API/add-note.handler
     description: POST /note
     events:
       - http:
@@ -55,7 +54,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   update-note:
-    handler: api/update-note.handler
+    handler: API/update-note.handler
     description: PATCH /note
     events:
       - http:
@@ -66,7 +65,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   get-notes:
-    handler: api/get-notes.handler
+    handler: API/get-notes.handler
     description: GET /notes
     events:
       - http:
@@ -77,7 +76,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   get-note:
-    handler: api/get-note.handler
+    handler: API/get-note.handler
     description: GET /note/n/{note_id}
     events:
       - http:
@@ -88,7 +87,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   delete-note:
-    handler: api/delete-note.handler
+    handler: API/delete-note.handler
     description: DELETE /note
     events:
       - http:
