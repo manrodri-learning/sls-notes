@@ -26,14 +26,6 @@ jobs:
           echo installing dependencies
           npm ci
 
-      - name: build and lint
-        run: |
-          npm run  build
-          npm run lint
-
-      - name: unit tests
-        run: |
-          npm run test
       - name: deploy to AWS
         run: |
           echo "Deployment started on $(date)"

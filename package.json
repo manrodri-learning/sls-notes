@@ -4,9 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo TBD",
-    "build": "echo TBD: most likely tsc ...",
-    "lint": "echo tbd...",
     "format:write": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -14,13 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1409.0",
-    "moment": "^2.29.4",
-    "underscore": "^1.13.6",
-    "uuid": "^9.0.0"
+    "aws-sdk": "^2.326.0",
+    "moment": "^2.22.2",
+    "serverless-offline": "^3.25.17",
+    "underscore": "^1.9.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "prettier": "^2.8.8",
-    "serverless-offline": "^12.0.4"
+    "serverless-domain-manager": "^2.6.5"
   }
 }
