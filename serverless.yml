@@ -1,8 +1,6 @@
 
 service: sls-notes-backend
 
-plugins:
-  - serverless-offline
 
 custom:
   allowedHeaders:
@@ -29,11 +27,10 @@ provider:
   environment:
     NOTES_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamManagedPolicies:
-    - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
-  
+    - "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 functions:
   add-note:
-    handler: API/add-note.handler
+    handler: api/add-note.handler
     description: POST /note
     events:
       - http:
@@ -44,7 +41,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   update-note:
-    handler: API/update-note.handler
+    handler: api/update-note.handler
     description: PATCH /note
     events:
       - http:
@@ -55,7 +52,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   get-notes:
-    handler: API/get-notes.handler
+    handler: api/get-notes.handler
     description: GET /notes
     events:
       - http:
@@ -66,7 +63,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   get-note:
-    handler: API/get-note.handler
+    handler: api/get-note.handler
     description: GET /note/n/{note_id}
     events:
       - http:
@@ -77,7 +74,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   delete-note:
-    handler: API/delete-note.handler
+    handler: api/delete-note.handler
     description: DELETE /note
     events:
       - http:
