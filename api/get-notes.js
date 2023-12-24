@@ -15,6 +15,7 @@ exports.handler = async (event) => {
         let query = event.queryStringParameters;
         let limit = query && query.limit ? parseInt(query.limit) : 5;
         let user_id = util.getUserId(event.headers);
+        console.log("user_id", user_id);
 
         let params = {
             TableName: tableName,
@@ -26,7 +27,10 @@ exports.handler = async (event) => {
             ScanIndexForward: false
         };
 
+        console.log('params', JSON.stringify(params))
+
         let startTimestamp = query && query.start ? parseInt(query.start) : 0;
+        console.log('startTimestamp', startTimestamp)
 
         if(startTimestamp > 0) {
             params.ExclusiveStartKey = {
