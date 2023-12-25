@@ -48,7 +48,7 @@ functions:
       - http:
           path: note
           method: post
-          autorizer: aws_iam
+          authorizer: aws_iam
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
@@ -60,7 +60,7 @@ functions:
       - http:
           path: note
           method: patch
-          autorizer: aws_iam
+          authorizer: aws_iam
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
@@ -72,7 +72,7 @@ functions:
       - http:
           path: notes
           method: get
-          autorizer: aws_iam
+          authorizer: aws_iam
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
@@ -84,7 +84,7 @@ functions:
       - http:
           path: note/n/{note_id}
           method: get
-          autorizer: aws_iam
+          authorizer: aws_iam
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
@@ -96,7 +96,7 @@ functions:
       - http:
           path: note/t/{timestamp}
           method: delete
-          autorizer: aws_iam
+          authorizer: aws_iam
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
@@ -133,12 +133,12 @@ resources:
             ProvisionedThroughput:
               ReadCapacityUnits: 1
               WriteCapacityUnits: 1
-    GatewayResponseDefault4XX:
-      Type: 'AWS::ApiGateway::GatewayResponse'
+    GatewayResponseDefault4XX: ## YOU CAN ADD SIMILAR SECTION FOR 5XX ERRORS IF DESIRED
+      Type: AWS::ApiGateway::GatewayResponse
       Properties:
         ResponseParameters:
-          gatewayresponse.header.Access-Control-Allow-Origin: '*'
-          gatewayresponse.header.Access-Control-Allow-Headers: '*'
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
         ResponseType: DEFAULT_4XX
         RestApiId:
-          Ref: 'ApiGatewayRestApi'        
+          Ref: 'ApiGatewayRestApi'       
