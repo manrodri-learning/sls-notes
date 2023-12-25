@@ -2,8 +2,9 @@
  * Route: POST /note
  */
 
+const region = process.env.AWS_REGION || 'eu-west-1';
 const AWS = require('aws-sdk');
-AWS.config.update({ region: 'us-west-2' });
+AWS.config.update({ region });
 
 const moment = require('moment');
 const uuidv4 = require('uuid/v4');

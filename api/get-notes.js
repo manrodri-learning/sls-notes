@@ -2,13 +2,16 @@
  * Route: GET /notes
  */
 
+const region = process.env.AWS_REGION || 'eu-west-1'
+
 const AWS = require('aws-sdk');
-AWS.config.update({ region: 'us-west-2' });
+AWS.config.update({ region });
 
 const util = require('./util.js');
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const tableName = process.env.NOTES_TABLE;
+console.log("tableName", tableName);
 
 exports.handler = async (event) => {
     try {

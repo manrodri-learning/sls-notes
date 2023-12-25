@@ -2,8 +2,9 @@
  * Route: DELETE /note/t/{timestamp}
  */
 
+const region = process.env.AWS_REGION || 'eu-west-1';
 const AWS = require('aws-sdk');
-AWS.config.update({ region: 'us-west-2' });
+AWS.config.update({ region});
 
 const util = require('./util.js');
 
