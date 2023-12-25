@@ -12,8 +12,13 @@ const getResponseHeaders = () => {
     }
 }
 
+const getIdToken = (headers) => {
+    return headers.Authorization;
+}
+
 module.exports = {
     getUserId,
     getUserName,
-    getResponseHeaders
+    getResponseHeaders,
+    getIdToken
 }
