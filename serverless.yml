@@ -26,7 +26,7 @@ provider:
   endpointType: REGIONAL
   environment:
     NOTES_TABLE: ${self:service}-${opt:stage, self:provider.stage}
-    AWS_REGION: ${self:provider.region}
+    REGION: ${self:provider.region}
   iamManagedPolicies:
     - "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 functions:

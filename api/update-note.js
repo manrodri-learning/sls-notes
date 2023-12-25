@@ -1,7 +1,7 @@
 /**
  * Route: PATCH /note
  */
-const region = process.env.AWS_REGION || 'eu-west-1';
+const region = process.env.REGION || 'eu-west-1';
 
 const AWS = require('aws-sdk');
 AWS.config.update({ region });
