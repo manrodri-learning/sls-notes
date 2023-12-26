@@ -5,7 +5,7 @@ AWS.config.update({ region });
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const tableName = process.env.TABLE_NAME || 'sls-notes-backend-prod';
+const tableName = process.env.NOTES_TABLE || 'sls-notes-backend-prod';
 
 
 exports.handler = async (event) => {
