@@ -13,7 +13,21 @@ exports.handler = async (event) => {
         let items = event.Records.map(record => {
             let jsonData = Buffer.from(record.kinesis.data, 'base64').toString('ascii');
             console.log("Processing record:", jsonData)
+
+            let item = JSON.parse(jsonData);
+            let putRequest = {
+                PutRequest: {
+                    Item: item
+                }
+            }
+            return putRequest;
         })
+        let params = {
+            RequestItems: {
+                [tableName]: items
+            }
+        }
+        return await docClient.batchWrite(params).promise();
     } catch (err) {
         console.log(err);
         throw err;
