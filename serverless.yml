@@ -30,7 +30,7 @@ provider:
     COGNITO_IDENTITY_POOL_ID: eu-west-1:c20f7276-5fb5-43ed-aa69-901083689d1b
   iamManagedPolicies:
     - "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
-    - "arn:aws:iam::aws:policy/AWSLambdaKinesisExecution"
+    - "arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole"
 functions:
   sls-stream-proccessor:
     handler: api/sls-stream-processor.handler
