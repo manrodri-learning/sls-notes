@@ -11,7 +11,7 @@ const tableName = process.env.NOTES_TABLE || 'sls-notes-backend-prod';
 exports.handler = async (event) => {
     try {
         let items = event.Records.map(record => {
-            let jsonData = new Buffer(record.kinesis.data, 'base64').toString('ascii');
+            let jsonData = Buffer.from(record.kinesis.data, 'base64').toString('ascii');
             console.log("Processing record:", jsonData)
         })
     } catch (err) {
