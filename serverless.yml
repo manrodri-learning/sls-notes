@@ -35,16 +35,7 @@ functions:
   sls-stream-proccessor:
     handler: api/sls-stream-processor.handler
     description: Stream Processor
-    events: 
-      - stream:
-          type: kinesis
-          arn:
-            Fn::GetAtt:
-              - NotesTable
-              - StreamArn
-          batchSize: 25
-          startingPosition: LATEST
-          enabled: true
+    
     
   authenticate-google:
     handler: api/authenticate-google.handler
