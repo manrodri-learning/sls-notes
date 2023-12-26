@@ -1,6 +1,9 @@
 name: CI serverless app
 on:
   push:
+    # ignore path
+    paths-ignore:
+      - 'kinesis-producer/**/*'
     branches:
       - main
       - dev
